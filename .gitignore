@@ -1,0 +1,12 @@
+node_modules
+dist
+.tmp
+.sass-cache
+app/bower_components
+smartadmin
+sample
+backend/backend/node_modules
+backend/backend/.tmp
+.idea
+app/images/upload
+app/fonts

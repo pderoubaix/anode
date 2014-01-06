@@ -1,0 +1,106 @@
+<div class="container">
+
+<div class="row hidden-mobile">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <h1 class="page-title txt-color-blueDark">
+            <span class="glyphicon glyphicon-picture"></span>
+            Gallery <span>>
+			xxxx </span></h1>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-align-right">
+        <div class="page-title">
+            <a href="javascript:void(0);"  ng-click="showClient = !showClient" class="btn btn-default"><span class="glyphicon glyphicon-cloud-upload"> Upload </span></a>
+            <a href="javascript:void(0);" class="btn btn-default">Load Library</a>
+        </div>
+    </div>
+</div>
+<div class="row">
+
+    <!-- NEW WIDGET START -->
+    <article class="col-sm-12" ng-show="showClient">
+
+        <p class="alert alert-warning">
+            <i class="fa fa-warning fa-fw fa-lg"></i><strong>Opps!</strong>
+            You may get an error during the upload for this demo. The error will subside once the backend portion is properly configured.
+        </p>
+
+        <!-- Widget ID (each widget will need unique ID)-->
+        <div class="jarviswidget jarviswidget-color-blueLight" id="wid-id-0" data-widget-editbutton="false">
+
+            <header>
+               <span class="glyphicon glyphicon-cloud-upload"><h4>My Dropzone!</h4></span>
+
+
+            </header>
+
+            <!-- widget div-->
+            <div>
+
+                <!-- widget edit box -->
+                <div class="jarviswidget-editbox">
+                    <!-- This area used as dropdown edit box -->
+
+                </div>
+                <!-- end widget edit box -->
+
+                <!-- widget content -->
+                <div class="widget-body">
+
+                    <form action="http://0.0.0.0:1337/images/create/" class="dropzone" id="mydropzone"></form>
+
+                </div>
+                <!-- end widget content -->
+
+            </div>
+            <!-- end widget div -->
+
+        </div>
+        <!-- end widget -->
+        <div class="fallback">
+            <input name="file" type="file" multiple />
+        </div>
+    </article>
+    <!-- WIDGET END -->
+
+</div>
+
+
+<!-- row -->
+<div class="row">
+
+    <!-- SuperBox -->
+
+        <div ng-controller="MediaCtrl" class="superbox col-sm-12">
+        <div ng-repeat="media in images" class="superbox-list">
+            <img src="img/superbox/superbox-thumb-1.jpg" data-img="img/superbox/superbox-full-1.jpg" alt="My first photoshop layer mask on a high end PSD template theme" title="Miller Cine" class="superbox-img">
+        </div>
+
+        <div class="superbox-float"></div>
+    </div>
+    <!-- /SuperBox -->
+
+    <div class="superbox-show" style="height:300px; display: none"></div>
+
+</div>
+
+<script type="text/javascript">
+
+    $(function() {
+        $('.superbox').SuperBox();
+    });
+
+    $(function() {
+
+        Dropzone.autoDiscover = false;
+        $("#mydropzone").dropzone({
+            //url: "/file/post",
+            addRemoveLinks : true,
+            maxFilesize: 0.5,
+            dictResponseError: 'Error uploading file!'
+        });
+    })
+
+</script>
+
+</div>
