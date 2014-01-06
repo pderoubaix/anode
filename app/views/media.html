@@ -56,10 +56,7 @@
             <!-- end widget div -->
 
         </div>
-        <!-- end widget -->
-        <div class="fallback">
-            <input name="file" type="file" multiple />
-        </div>
+
     </article>
     <!-- WIDGET END -->
 
@@ -73,7 +70,7 @@
 
         <div ng-controller="MediaCtrl" class="superbox col-sm-12">
         <div ng-repeat="media in images" class="superbox-list">
-            <img src="img/superbox/superbox-thumb-1.jpg" data-img="img/superbox/superbox-full-1.jpg" alt="My first photoshop layer mask on a high end PSD template theme" title="Miller Cine" class="superbox-img">
+            <img src="images/upload/{{media.path}}" data-img="images/upload/{{media.path}}" alt="My first photoshop layer mask on a high end PSD template theme" title="Miller Cine" class="superbox-img">
         </div>
 
         <div class="superbox-float"></div>
@@ -97,6 +94,7 @@
             //url: "/file/post",
             addRemoveLinks : true,
             maxFilesize: 0.5,
+            createImageThumbnails : true,
             dictResponseError: 'Error uploading file!'
         });
     })
